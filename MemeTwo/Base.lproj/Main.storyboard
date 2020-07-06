@@ -204,13 +204,13 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GCi-Xh-0zN">
                                 <rect key="frame" x="0.0" y="12" width="414" height="743"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wTu-z2-n0T">
-                                <rect key="frame" x="107" y="120" width="200" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wTu-z2-n0T">
+                                <rect key="frame" x="107" y="120" width="200" height="18.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RU1-rz-3pU">
-                                <rect key="frame" x="107" y="641" width="200" height="48"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RU1-rz-3pU">
+                                <rect key="frame" x="107" y="649" width="200" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
@@ -291,7 +291,7 @@
         <!--Meme Detail View Controller-->
         <scene sceneID="f3T-ed-LTQ">
             <objects>
-                <viewController id="Iuk-ME-DAp" userLabel="Meme Detail View Controller" customClass="MemeDetailViewController" customModule="MemeTwo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="MemeDetailViewController" storyboardIdentifier="MemeDetailViewController" title="MemeDetailViewController" id="Iuk-ME-DAp" userLabel="Meme Detail View Controller" customClass="MemeDetailViewController" customModule="MemeTwo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pq0-D7-roC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

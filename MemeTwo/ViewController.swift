@@ -31,6 +31,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // will activate right after the view loads
     override func viewDidLoad() {
         
+        super.viewDidLoad()
+        
         let memeParagraphAttributes = NSMutableParagraphStyle()
         memeParagraphAttributes.alignment = NSTextAlignment.center
         
@@ -44,21 +46,25 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             NSAttributedString.Key.strokeWidth: 3.0
         ]
         
+        func configureMemeTextField(textField: UITextField, text: String) {
+            textField.text = text
+            textField.delegate = self
+            textField.defaultTextAttributes = memeTextAttributes
+            textField.textAlignment = .center
+        }
+        
         self.textFieldTop.delegate = self
         self.textFieldBottom.delegate = self
         
-        super.viewDidLoad()
-        textFieldTop.text = "TOP"
-        textFieldTop.textAlignment = .center
-        textFieldTop.defaultTextAttributes = memeTextAttributes
-        textFieldBottom.text = "BOTTOM"
-        textFieldBottom.textAlignment = .center
-        textFieldBottom.defaultTextAttributes = memeTextAttributes
+        configureMemeTextField(textField: textFieldTop, text: "TOP")
+        configureMemeTextField(textField: textFieldBottom, text: "BOTTOM")
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
           
     }
+    
+    
     
     // notifies the view controller that its view is about to be added to a view hierarchy
     override func viewWillAppear(_ animated: Bool) {
@@ -97,20 +103,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return textField.resignFirstResponder()
     }
     
-    // allows the user to pick an image from a given albulm
-    @IBAction func pickAnImageFromAlbum(_ sender: Any) {
+    func pickAnImage(sourceType: UIImagePickerController.SourceType) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
+        imagePicker.sourceType = sourceType
         present(imagePicker, animated: true, completion: nil)
+    }
+    
+    // allows the user to pick an image from a given albulm
+    @IBAction func pickAnImageFromAlbum(_ sender: Any) {
+        pickAnImage(sourceType: .photoLibrary)
     }
     
     // allows the user to get an image from the camera
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-        present(imagePicker, animated: true, completion: nil)
+        pickAnImage(sourceType: .camera)
     }
     
     // right after the user clicks on an image
